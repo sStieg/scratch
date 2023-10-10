@@ -37,10 +37,10 @@ jobs:
           echo "hello, world\n" > demo.txt
           pwd
           ls -l
-
-  deploy:
-    needs:
-      - build
-      - docs
-
-    runs-on: ubuntu-22.04
+#
+#  deploy:
+#    needs:
+#      - build
+#      - docs
+#
+#    runs-on: ubuntu-22.04

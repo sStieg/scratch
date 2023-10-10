@@ -34,13 +34,21 @@ jobs:
     steps:
       - name: Hello
         run: |
-          echo "hello, world\n" > demo.txt
+          mkdir -p dits
+          echo "hello, world\n" > dist/demo.txt
           pwd
           ls -l
-#
-#  deploy:
-#    needs:
-#      - build
-#      - docs
-#
-#    runs-on: ubuntu-22.04
+      - name: Archive production artiacts
+        uses: actions/upload-artifact@y3
+        with:
+          nmae: hello
+          path: dist
+
+  deploy:
+    needs:
+      - build
+      - docs
+
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo "done"

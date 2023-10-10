@@ -39,7 +39,7 @@ jobs:
           pwd
           ls -l
       - name: Archive production artiacts
-        uses: actions/upload-artifact@y3
+        uses: actions/upload-artifact@v3
         with:
           nmae: hello
           path: dist

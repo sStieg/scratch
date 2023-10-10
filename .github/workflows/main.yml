@@ -2,7 +2,7 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -26,9 +26,10 @@ jobs:
         run: java --version
 
       - name: Execute helloworld.java
-        run: javac helloworld.java || java helloworld
+        run: javac helloworld.java && java helloworld
 
   docs:
+    name: documentation
     runs-on: ubuntu-22.04
     steps:
       - name: Hello
@@ -36,3 +37,10 @@ jobs:
           echo "hello, world\n" > demo.txt
           pwd
           ls -l
+
+  deploy:
+    needs:
+      - build
+      - docs
+
+    runs-on: ubuntu-22.04

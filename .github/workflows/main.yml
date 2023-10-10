@@ -41,7 +41,7 @@ jobs:
       - name: Archive production artiacts
         uses: actions/upload-artifact@v3
         with:
-          nmae: hello
+          name: hello
           path: dist
 
   deploy:
@@ -51,4 +51,12 @@ jobs:
 
     runs-on: ubuntu-22.04
     steps:
+      - name: Download our text file
+        uses: actions/download-artifact@v3
+        with:
+          nmae: hello
+    
+      - run: |
+          pwd
+          ls -l
       - run: echo "done"

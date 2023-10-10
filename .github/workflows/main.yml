@@ -24,3 +24,15 @@ jobs:
 
       - name: show java version
         run: java --version
+
+      - name: Execute helloworld.java
+        run: javac helloworld.java || java helloworld
+
+  docs:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Hello
+        run: |
+          echo "hello, world\n" > demo.txt
+          pwd
+          ls -l

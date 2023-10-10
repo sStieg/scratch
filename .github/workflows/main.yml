@@ -54,7 +54,7 @@ jobs:
       - name: Download our text file
         uses: actions/download-artifact@v3
         with:
-          nmae: hello
+          name: hello
     
       - run: |
           pwd
